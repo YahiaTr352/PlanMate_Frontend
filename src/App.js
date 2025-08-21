@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Signup } from "./pages/signup/signup";
 import { useSelector } from "react-redux";
 import { Login } from "./pages/login/login"
@@ -8,6 +8,7 @@ import { Home } from "./pages/home/home";
 import { toast, ToastContainer } from "react-toastify";
 import { Header } from "./components/header/header";
 import { NotFound } from "./pages/notFound/notFound";
+import { RedirectFromRoot } from "./routes/redirectFromRoot";
 import { RequireAuth } from "./routes/requireAuth";
 import { RedirectIfAuth } from "./routes/redirectIfAuth";
 
@@ -19,13 +20,14 @@ export default function App() {
     if (tasksNetworkError) toast.error(tasksNetworkError);
     if (authServerError) toast.error(authServerError);
     if (authNetworkError) toast.error(authNetworkError);
-  }, [tasksServerError, tasksNetworkError, authServerError, authNetworkError]);    
-  
+  }, [tasksServerError, tasksNetworkError, authServerError, authNetworkError]);
+
   return (
     <>
-      <Header/>
+      {/* <Header/>
       <Routes>
-        <Route path="/" element = {<Navigate to="/login" replace/>}/>
+        <Route path="/" element={<RedirectFromRoot />} />
+
         <Route element = {<RedirectIfAuth/>}>
            <Route path="/signup" element = {<Signup/>}/>
            <Route path="/login" element = {<Login/>}/>
@@ -40,7 +42,11 @@ export default function App() {
         position="top-center"
         autoClose={3000}
         theme="colored"
-      />
+      /> */}
+      <div className="notFound-div">
+        <h1>404 - Page Not Found</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+      </div>
     </>
   );
 }
