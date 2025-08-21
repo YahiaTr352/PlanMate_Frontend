@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://planmate-three.vercel.app/sitemap.xml
