@@ -26,17 +26,17 @@ export default function App() {
     <>
       <Header/>
       <Routes>
-        {/* <Route path="/" element={<RedirectFromRoot />} /> */}
+        <Route path="/" element={<RedirectFromRoot />} />
 
-        {/* <Route element = {<RedirectIfAuth/>}> */}
+        <Route element = {<RedirectIfAuth/>}>
            <Route path="/signup" element = {<Signup/>}/>
            <Route path="/login" element = {<Login/>}/>
-        {/* </Route> */}
-        {/* <Route element = {<RequireAuth/>}> */}
+        </Route>
+        <Route element = {<RequireAuth/>}>
           <Route path="/home" element = {<Home/>}/>
           <Route path="/home/edit-task/:taskId" element={<EditTaskScreen />} />
           <Route path="*" element={<NotFound/>} />
-        {/* </Route> */}
+        </Route>
       </Routes>
       <ToastContainer
         position="top-center"
